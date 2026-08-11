@@ -1,1 +1,171 @@
-[]
+[
+  {
+    "id": "5317e16f-e5bc-4e82-b280-73618df8172a",
+    "communityId": "palm-residency",
+    "type": "move_in",
+    "state": "DECIDED",
+    "currentFieldIndex": 6,
+    "editField": null,
+    "intentAttempts": 2,
+    "answers": {
+      "full_name": "joker",
+      "unit_number": "a-10",
+      "id_proof": "apa.jpg",
+      "deposit_receipt": "asd.pdf",
+      "move_in_date": "2025-02-12",
+      "pet_declaration": "Yes"
+    },
+    "status": "rejected",
+    "agentReview": {
+      "complete": true,
+      "missingFields": [],
+      "flaggedIssues": [
+        "Move-in Date (\"2025-02-12\") is in the past.",
+        "Resident declared pets - verify against community pet policy."
+      ],
+      "recommendation": "review",
+      "rationale": "All required fields are present, but 2 item(s) need admin attention: Move-in Date (\"2025-02-12\") is in the past. Resident declared pets - verify against community pet policy."
+    },
+    "history": [
+      {
+        "role": "agent",
+        "text": "Hi! Welcome to Palm Residency. Are you looking to move in or move out today?",
+        "ts": "2026-08-11T19:54:39.515Z"
+      },
+      {
+        "role": "resident",
+        "text": "sad",
+        "ts": "2026-08-11T19:54:42.933Z"
+      },
+      {
+        "role": "agent",
+        "text": "I want to make sure I set this up correctly - are you looking to move in or move out?",
+        "ts": "2026-08-11T19:54:42.933Z"
+      },
+      {
+        "role": "resident",
+        "text": "noo",
+        "ts": "2026-08-11T19:54:47.086Z"
+      },
+      {
+        "role": "agent",
+        "text": "I still couldn't tell - please reply with just \"move in\" or \"move out\" so I can continue.",
+        "ts": "2026-08-11T19:54:47.086Z"
+      },
+      {
+        "role": "resident",
+        "text": "moving in",
+        "ts": "2026-08-11T19:54:53.278Z"
+      },
+      {
+        "role": "agent",
+        "text": "Great, let's get your move-in request started for Palm Residency. What is your full name, exactly as it appears on your government ID?",
+        "ts": "2026-08-11T19:54:53.278Z"
+      },
+      {
+        "role": "resident",
+        "text": "joker",
+        "ts": "2026-08-11T19:54:58.598Z"
+      },
+      {
+        "role": "agent",
+        "text": "Got it. Which unit/apartment number are you moving into? (e.g. B-204)",
+        "ts": "2026-08-11T19:54:58.599Z"
+      },
+      {
+        "role": "resident",
+        "text": "a-10",
+        "ts": "2026-08-11T19:55:02.886Z"
+      },
+      {
+        "role": "agent",
+        "text": "Got it. Please provide your government-issued ID proof. Reply with the file name, including its extension (e.g. aadhaar_card.pdf or passport.jpg) - \"no\"/\"none\" won't be accepted, this document is required.",
+        "ts": "2026-08-11T19:55:02.886Z"
+      },
+      {
+        "role": "resident",
+        "text": "apa.jpg",
+        "ts": "2026-08-11T19:55:12.902Z"
+      },
+      {
+        "role": "agent",
+        "text": "Got it. Please provide your security deposit payment receipt. Reply with the file name, including its extension (e.g. deposit_receipt.pdf).",
+        "ts": "2026-08-11T19:55:12.902Z"
+      },
+      {
+        "role": "resident",
+        "text": "asd.pdf",
+        "ts": "2026-08-11T19:55:22.119Z"
+      },
+      {
+        "role": "agent",
+        "text": "Got it. What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).",
+        "ts": "2026-08-11T19:55:22.120Z"
+      },
+      {
+        "role": "resident",
+        "text": "23-02-2026",
+        "ts": "2026-08-11T19:55:31.393Z"
+      },
+      {
+        "role": "agent",
+        "text": "Please provide the date in YYYY-MM-DD format for \"Move-in Date\". What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).",
+        "ts": "2026-08-11T19:55:31.393Z"
+      },
+      {
+        "role": "resident",
+        "text": "2056-02-32",
+        "ts": "2026-08-11T19:55:44.775Z"
+      },
+      {
+        "role": "agent",
+        "text": "Please provide the date in YYYY-MM-DD format for \"Move-in Date\". What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).",
+        "ts": "2026-08-11T19:55:44.775Z"
+      },
+      {
+        "role": "resident",
+        "text": "2025-3-12",
+        "ts": "2026-08-11T19:55:57.953Z"
+      },
+      {
+        "role": "agent",
+        "text": "Please provide the date in YYYY-MM-DD format for \"Move-in Date\". What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).",
+        "ts": "2026-08-11T19:55:57.953Z"
+      },
+      {
+        "role": "resident",
+        "text": "2025-02-12",
+        "ts": "2026-08-11T19:56:06.900Z"
+      },
+      {
+        "role": "agent",
+        "text": "Got it. Do you have any pets that will be living with you? (Yes/No)",
+        "ts": "2026-08-11T19:56:06.900Z"
+      },
+      {
+        "role": "resident",
+        "text": "yes",
+        "ts": "2026-08-11T19:56:11.863Z"
+      },
+      {
+        "role": "agent",
+        "text": "Here's what I have:\n- Full Name: joker\n- Unit Number: a-10\n- Government ID Proof: apa.jpg\n- Security Deposit Receipt: asd.pdf\n- Move-in Date: 2025-02-12\n- Pet Declaration: Yes\n\nDoes this all look correct? Reply \"yes\" to submit, or tell me what to change.",
+        "ts": "2026-08-11T19:56:11.863Z"
+      },
+      {
+        "role": "resident",
+        "text": "yes",
+        "ts": "2026-08-11T19:56:17.139Z"
+      },
+      {
+        "role": "agent",
+        "text": "Thanks! Your request has been submitted to the community admin for review. You'll see the decision here once it's made.",
+        "ts": "2026-08-11T19:56:17.140Z"
+      }
+    ],
+    "createdAt": "2026-08-11T19:54:39.515Z",
+    "submittedAt": "2026-08-11T19:56:17.139Z",
+    "decidedAt": "2026-08-11T19:56:37.177Z",
+    "decisionNote": null
+  }
+]
