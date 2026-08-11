@@ -15,7 +15,6 @@ services:
     name: anacity-frontend
     runtime: static
     rootDir: web
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
