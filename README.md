@@ -71,13 +71,31 @@ web/
 
 ## Deployment
 
-The backend persists request/message history to `server/src/data/requests.json` on local disk. Whether that survives a redeploy depends entirely on the host:
+The backend persists request/message history to `server/src/data/requests.json` on local disk. Whether that survives a redeploy depends entirely on the host — see the general options below, then the concrete Render steps this repo is currently set up for.
+
+### Render (current target)
+
+`render.yaml` at the repo root is a [Render Blueprint](https://render.com/docs/blueprint-spec) defining two free-tier services: `anacity-backend` (Node web service) and `anacity-frontend` (static site).
+
+**Known limitation on the free tier**: Render's free plan has no persistent disk. The backend's filesystem resets on every redeploy and likely on every idle spin-down/wake cycle (free services sleep after ~15 min of inactivity), so `requests.json` goes back to `[]` at those points. This is a deliberate trade-off for a zero-cost deploy — see the "Render / Railway / Fly.io" section below for how to add a persistent disk later if you upgrade to a paid instance type.
+
+Steps:
+1. Push this repo to GitHub if you haven't (`origin` is already set to `SharadArora98/CommunityAgent`).
+2. In the Render dashboard: **New +** → **Blueprint** → connect the `CommunityAgent` repo. Render will detect `render.yaml` and propose both services.
+3. Before deploying, it will prompt for the two `sync: false` secrets:
+   - `anacity-backend` → `GEMINI_API_KEY` (optional — leave blank and the app still runs on rule-based fallback logic, `GET /api/health` will report `llmAvailable: false`)
+   - `anacity-frontend` → `VITE_API_BASE_URL` — leave this blank for the first deploy (the backend's URL doesn't exist yet).
+4. Deploy. Once `anacity-backend` is live, copy its URL (e.g. `https://anacity-backend.onrender.com`).
+5. Go to `anacity-frontend` → Environment, set `VITE_API_BASE_URL` to `<backend-url>/api` (e.g. `https://anacity-backend.onrender.com/api`), then trigger a manual redeploy of just the frontend (env vars only take effect on the next build, since Vite bakes them in at build time).
+6. Visit the frontend's Render URL, `/resident` and `/admin` are the two routes.
+
+To add persistence later (paid plan required — see below), add a `disk:` block under `anacity-backend` in `render.yaml` and a `DATA_DIR` env var pointing at its mount path, then redeploy the Blueprint.
+
+### Other hosts
 
 - **A plain VPS** (or any host with a genuinely persistent disk): works with zero changes. Just keep the process running (e.g. `pm2 start src/index.js` or a systemd unit) and set `GEMINI_API_KEY`/`PORT` in the environment.
-- **Render / Railway / Fly.io**: these reset the container's local filesystem on every deploy and (on some plans) every restart — `requests.json` would silently go back to `[]` each time unless you attach a **persistent volume** and point the app at it:
-  1. Add a persistent volume/disk to the service (Render: "Disks"; Railway: "Volumes"; Fly.io: `fly volumes create`) and mount it somewhere, e.g. `/data`.
-  2. Set `DATA_DIR=/data` in that service's environment variables. `server/src/store.js` reads `requests.json` from `DATA_DIR` (defaulting to `src/data/` for local dev) and creates it with `[]` on first boot if the volume is empty.
-- **Frontend**: `web/` is a static Vite build (`npm run build` → `dist/`) — deploy it to any static host (Vercel, Netlify, Render Static Site, etc.). Since the frontend and backend will be on different origins in this setup (unlike the local dev proxy), set `VITE_API_BASE_URL` at build time to the backend's public URL + `/api` (see `web/.env.example`). The backend's CORS is currently open (`cors()` with no origin restriction), so no backend change is needed for this.
+- **Render / Railway / Fly.io on a paid plan**: attach a persistent volume/disk to the service (Render: "Disks", requires a paid instance type; Railway: "Volumes"; Fly.io: `fly volumes create`), mount it somewhere (e.g. `/data`), and set `DATA_DIR=/data` in that service's environment variables. `server/src/store.js` reads `requests.json` from `DATA_DIR` (defaulting to `src/data/` for local dev) and creates it with `[]` on first boot if the volume is empty.
+- **Frontend on any static host** (Vercel, Netlify, etc.): same `VITE_API_BASE_URL`-at-build-time approach as above.
 
 Vercel serverless functions are **not** a good fit for the backend specifically: their filesystem is read-only outside `/tmp`, and `/tmp` doesn't persist across invocations, so this JSON-file store would lose all history. Vercel works fine for the *frontend* static build, paired with a backend hosted elsewhere per above.
 
