@@ -1,0 +1,48 @@
+[
+  {
+    "id": "cedar-heights",
+    "name": "Cedar Heights",
+    "admin": { "id": "admin-cedar", "name": "Priya Nair" },
+    "flows": {
+      "move_in": [
+        { "key": "full_name", "label": "Full Name", "prompt": "What is your full name, exactly as it appears on your government ID?", "inputType": "text", "required": true },
+        { "key": "unit_number", "label": "Unit Number", "prompt": "Which unit/apartment number are you moving into? (e.g. B-204)", "inputType": "text", "required": true },
+        { "key": "id_proof", "label": "Government ID Proof", "prompt": "Please provide your government-issued ID proof. Reply with the file name, including its extension (e.g. aadhaar_card.pdf or passport.jpg) - \"no\"/\"none\" won't be accepted, this document is required.", "inputType": "file", "required": true },
+        { "key": "lease_agreement", "label": "Signed Lease Agreement", "prompt": "Please provide your signed lease agreement document. Reply with the file name, including its extension (e.g. lease_signed.pdf).", "inputType": "file", "required": true },
+        { "key": "move_in_date", "label": "Move-in Date", "prompt": "What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).", "inputType": "date", "required": true },
+        { "key": "vehicle_number", "label": "Vehicle Registration", "prompt": "Do you have a vehicle you'll be parking in the community? Share the vehicle registration number (e.g. KA-01-AB-1234), or type \"none\" if you don't have one.", "inputType": "text", "required": true }
+      ],
+      "move_out": [
+        { "key": "full_name", "label": "Full Name", "prompt": "What is your full name, exactly as it appears on your government ID?", "inputType": "text", "required": true },
+        { "key": "unit_number", "label": "Unit Number", "prompt": "Which unit/apartment number are you moving out of? (e.g. B-204)", "inputType": "text", "required": true },
+        { "key": "move_out_date", "label": "Move-out Date", "prompt": "What is your planned move-out date? Use YYYY-MM-DD format (e.g. 2026-09-01).", "inputType": "date", "required": true },
+        { "key": "id_proof", "label": "Government ID Proof", "prompt": "Please provide your government ID for verification. Reply with the file name, including its extension (e.g. aadhaar_card.pdf) - \"no\"/\"none\" won't be accepted, this document is required.", "inputType": "file", "required": true },
+        { "key": "forwarding_address", "label": "Forwarding Address", "prompt": "What is your forwarding address (street, city, postal code), for mail and deposit refund purposes?", "inputType": "text", "required": true },
+        { "key": "clearance_ack", "label": "Move-out Condition Acknowledgement", "prompt": "Do you confirm the unit will be left in good, inspection-ready condition on your move-out date? (Yes/No)", "inputType": "select", "options": ["Yes", "No"], "required": true }
+      ]
+    }
+  },
+  {
+    "id": "palm-residency",
+    "name": "Palm Residency",
+    "admin": { "id": "admin-palm", "name": "Rohit Verma" },
+    "flows": {
+      "move_in": [
+        { "key": "full_name", "label": "Full Name", "prompt": "What is your full name, exactly as it appears on your government ID?", "inputType": "text", "required": true },
+        { "key": "unit_number", "label": "Unit Number", "prompt": "Which unit/apartment number are you moving into? (e.g. B-204)", "inputType": "text", "required": true },
+        { "key": "id_proof", "label": "Government ID Proof", "prompt": "Please provide your government-issued ID proof. Reply with the file name, including its extension (e.g. aadhaar_card.pdf or passport.jpg) - \"no\"/\"none\" won't be accepted, this document is required.", "inputType": "file", "required": true },
+        { "key": "deposit_receipt", "label": "Security Deposit Receipt", "prompt": "Please provide your security deposit payment receipt. Reply with the file name, including its extension (e.g. deposit_receipt.pdf).", "inputType": "file", "required": true },
+        { "key": "move_in_date", "label": "Move-in Date", "prompt": "What is your planned move-in date? Use YYYY-MM-DD format (e.g. 2026-09-01).", "inputType": "date", "required": true },
+        { "key": "pet_declaration", "label": "Pet Declaration", "prompt": "Do you have any pets that will be living with you? (Yes/No)", "inputType": "select", "options": ["Yes", "No"], "required": true }
+      ],
+      "move_out": [
+        { "key": "full_name", "label": "Full Name", "prompt": "What is your full name, exactly as it appears on your government ID?", "inputType": "text", "required": true },
+        { "key": "unit_number", "label": "Unit Number", "prompt": "Which unit/apartment number are you moving out of? (e.g. B-204)", "inputType": "text", "required": true },
+        { "key": "move_out_date", "label": "Move-out Date", "prompt": "What is your planned move-out date? Use YYYY-MM-DD format (e.g. 2026-09-01).", "inputType": "date", "required": true },
+        { "key": "deposit_receipt", "label": "Original Deposit Receipt", "prompt": "Please re-share your original security deposit receipt, for refund processing. Reply with the file name, including its extension (e.g. deposit_receipt.pdf).", "inputType": "file", "required": true },
+        { "key": "forwarding_address", "label": "Forwarding Address", "prompt": "What is your forwarding address (street, city, postal code), for mail and deposit refund purposes?", "inputType": "text", "required": true },
+        { "key": "key_return_ack", "label": "Key Return Acknowledgement", "prompt": "Do you confirm you will return all keys and access cards on your move-out date? (Yes/No)", "inputType": "select", "options": ["Yes", "No"], "required": true }
+      ]
+    }
+  }
+]

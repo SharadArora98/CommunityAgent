@@ -1,0 +1,27 @@
+THIS IS AN AI AGENTIC WOKFLOW PROTOTYPE, DEFINE STATES, WORKFLOW, AGENTS AND TOOL CALLS
+
+STACK - NODE.JS, JAVASCRIPT, BASIC REACT.JS FOR SIMPLE UI, FOR MEMEORY MANAGEMENT USE IN MEMORY OR JSON FILE.
+
+Resident Flow:
+    user tells whether he wishes to move in or move out - USE intent detection
+    Define states, input outputs for both flows - move in and move out - for each state define prompt to get the required inputs
+    Go thourgh states according to the flow, act like a state machine, dont go out of context, ask users the required docs, data , dont assume.
+
+Communities:
+	Define communities and their set of required values that are needed for move in / move out
+	Let each community have an admin
+	Show a dropdown to select a community
+
+Admin Flow:
+	Admin of a community needs to check the pending requests, and accept or reject them depending upon the request meeting all the community criteria.
+	Use an agent to evalute each request whether its complete or not to assist the admin in decision
+
+Agents
+    Define the agents, permissions
+
+UI - minimalistic & SIMPLE, simplify apis, only 2 routes resindent and admin.
+
+Resident page should show chat window, required docs or values depending upon the state and workflow.
+Admin page should show list of open requests, and review them to accept or reject.
+
+THIS SHOULD BE STATE DRIVEN, WORKFLOW DRIVEN, JUST STICK TO THE ASSIGNMENT, DONT ADD EXTRA FEATURE, BUILD SMALL, BUILD PERFECT.
